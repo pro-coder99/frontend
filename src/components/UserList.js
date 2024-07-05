@@ -6,7 +6,7 @@ const UserList = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get('http://localhost:5000/api/users');
+      const res = await axios.get('http://localhost:5000/api/v1/users');
       setUsers(res.data);
     };
     fetchUsers();
@@ -15,9 +15,9 @@ const UserList = () => {
   return (
     <div>
       <h2>Users</h2>
-      <ul>
+      <ul style={{listStyle: "none"}}>
         {users.map((user) => (
-          <li key={user._id}>{user.firstName} {user.lastName} - {user.email}</li>
+          <li key={user.id}>{user.id} ) {user.firstname} {user.lastname} - {user.email}</li>
         ))}
       </ul>
     </div>
